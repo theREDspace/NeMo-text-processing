@@ -2,7 +2,7 @@ black==19.10b0
 click==8.0.2
 isort[requirements] < 5
 parameterized
-pynini==2.1.5.post1
+pynini @ git+https://github.com/theREDspace/pynini@master
 pytest
 pytest-runner
 ruamel.yaml
