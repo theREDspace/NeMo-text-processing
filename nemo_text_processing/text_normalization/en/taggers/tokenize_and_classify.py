@@ -151,6 +151,10 @@ class ClassifyFst(GraphFst):
             logger.debug(f"serial: {time.time() - start_time: .2f}s -- {serial_graph.num_states()} nodes")
 
             start_time = time.time()
+            roman_graph = RomanFst(deterministic=deterministic).fst
+            logger.debug(f"roman: {time.time() - start_time: .2f}s -- {roman_graph.num_states()} nodes")
+
+            start_time = time.time()
             v_time_graph = vTimeFst(deterministic=deterministic).fst
             v_ordinal_graph = vOrdinalFst(deterministic=deterministic)
             v_date_graph = vDateFst(ordinal=v_ordinal_graph, deterministic=deterministic).fst
@@ -174,11 +178,9 @@ class ClassifyFst(GraphFst):
                 | pynutil.add_weight(electonic_graph, 1.1)
                 | pynutil.add_weight(fraction_graph, 1.1)
                 | pynutil.add_weight(range_graph, 1.1)
+                | pynutil.add_weight(roman_graph, 1.1)
                 | pynutil.add_weight(serial_graph, 1.1003)  # should be higher than the rest of the classes
             )
-
-            # roman_graph = RomanFst(deterministic=deterministic).fst
-            # classify |= pynutil.add_weight(roman_graph, 1.1)
 
             if not deterministic:
                 abbreviation_graph = AbbreviationFst(deterministic=deterministic).fst

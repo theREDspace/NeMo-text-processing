@@ -34,9 +34,14 @@ class RomanFst(GraphFst):
         super().__init__(name="roman", kind="classify", deterministic=deterministic)
 
         roman_dict = load_labels(get_abs_path("data/roman/roman_to_spoken.tsv"))
+        regnal_dict = load_labels(get_abs_path("data/roman/regnal_to_spoken.tsv"))
+
         default_graph = pynini.string_map(roman_dict).optimize()
         default_graph = pynutil.insert("integer: \"") + default_graph + pynutil.insert("\"")
         ordinal_limit = 19
+
+        regnal_graph = pynini.string_map(regnal_dict).optimize()
+        regnal_graph = pynutil.insert("integer: \"") + regnal_graph + pynutil.insert("\"")
 
         if deterministic:
             # exclude "I"
@@ -53,7 +58,7 @@ class RomanFst(GraphFst):
             + names
             + pynutil.insert("\"")
             + pynini.accep(" ")
-            + graph_teens @ default_graph
+            + regnal_graph 
         ).optimize()
 
         # single symbol roman numerals with preceding key words (multiple formats) are converted to cardinal form
