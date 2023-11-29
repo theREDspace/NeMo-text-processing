@@ -39,6 +39,17 @@ class RomanFst(GraphFst):
         default_graph = pynutil.insert("integer: \"") + default_graph + pynutil.insert("\"")
         ordinal_limit = 19
 
+        """
+        Regnal Numbers are used to distinguish among persons with the same name who've held the same office.
+        An example of this is Julius Caesar IV, or Princess Rainier II of Monaco. These cases are treated differently
+        from typical roman normalizations, in that the word "the" will be inserted before the ordinal.
+        E.g. Princess Rainier the second of Monaco.
+
+        Note: With the way filter priorizization works, the filter where "three" will get convered to "third" falls after
+        the roman classifer, so the Regnal FST data referenced above is wrote in the form of II => the two... Which will
+        later be formatted into "the second".
+        """
+
         regnal_graph = pynini.string_map(regnal_dict).optimize()
         regnal_graph = pynutil.insert("integer: \"") + regnal_graph + pynutil.insert("\"")
 
