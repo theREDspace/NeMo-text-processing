@@ -1,0 +1,22 @@
+8 h~huit heures
+8h~huit heures
+0 h~minuit
+0h~minuit
+14 h~quatorze heures
+14h~quatorze heures
+12 h~midi
+12h~midi
+18 h~dix-huit heures
+18h~dix-huit heures
+8 h 07~huit heures sept
+8h 07~huit heures sept
+0 h 17~minuit dix-sept
+0h 17~minuit dix-sept
+11 h 30~onze heures et demie
+11h30~onze heures et demie
+11 h 45~onze heures et trois quarts
+11h 45~onze heures et trois quarts
+11 h 57~onze heures cinquante-sept
+11h57~onze heures cinquante-sept
+11 h 38~onze heures trente-huit
+11h38~onze heures trente-huit

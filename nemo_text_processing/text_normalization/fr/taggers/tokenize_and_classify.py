@@ -29,6 +29,7 @@ from nemo_text_processing.text_normalization.fr.taggers.cardinal import Cardinal
 from nemo_text_processing.text_normalization.fr.taggers.decimals import DecimalFst
 from nemo_text_processing.text_normalization.fr.taggers.fraction import FractionFst
 from nemo_text_processing.text_normalization.fr.taggers.ordinal import OrdinalFst
+from nemo_text_processing.text_normalization.fr.taggers.time import TimeFst
 from nemo_text_processing.text_normalization.fr.taggers.whitelist import WhiteListFst
 from nemo_text_processing.text_normalization.fr.taggers.word import WordFst
 from nemo_text_processing.utils.logging import logger
@@ -79,6 +80,8 @@ class ClassifyFst(GraphFst):
             self.decimal = DecimalFst(cardinal=self.cardinal, deterministic=deterministic)
             decimal_graph = self.decimal.fst
 
+            time_graph = TimeFst(cardinal=self.cardinal, deterministic=deterministic).fst
+
             self.fraction = FractionFst(cardinal=self.cardinal, ordinal=self.ordinal, deterministic=deterministic)
             fraction_graph = self.fraction.fst
             word_graph = WordFst(deterministic=deterministic).fst
@@ -88,12 +91,14 @@ class ClassifyFst(GraphFst):
 
             classify = (
                 pynutil.add_weight(whitelist_graph, 1.01)
-                | pynutil.add_weight(cardinal_graph, 1.1)
+                | pynutil.add_weight(time_graph, 1.08)
                 | pynutil.add_weight(fraction_graph, 1.09)
+                | pynutil.add_weight(cardinal_graph, 1.1)
                 | pynutil.add_weight(ordinal_graph, 1.1)
                 | pynutil.add_weight(decimal_graph, 1.1)
                 | pynutil.add_weight(word_graph, 200)
             )
+
             punct = pynutil.insert("tokens { ") + pynutil.add_weight(punct_graph, weight=2.1) + pynutil.insert(" }")
             punct = pynini.closure(
                 pynini.compose(pynini.closure(NEMO_WHITE_SPACE, 1), delete_extra_space)

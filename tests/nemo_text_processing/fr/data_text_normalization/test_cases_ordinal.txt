@@ -1,9 +1,11 @@
 1er~premier
+Ire~première
 1ère~première
 3e~troisième
 8ème~huitième
 6°~sixième
 21e~vingt et unième
+XXIe~vingt et unième
 5e~cinquième
 9e~neuvième
 10°~dixième

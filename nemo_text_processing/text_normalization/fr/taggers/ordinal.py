@@ -13,12 +13,12 @@
 # limitations under the License.
 
 
+from nemo_text_processing.text_normalization.fr.graph_utils import roman_to_int
 import pynini
 from pynini.lib import pynutil
 
 from nemo_text_processing.text_normalization.en.graph_utils import NEMO_SPACE, GraphFst
 from nemo_text_processing.text_normalization.fr.utils import get_abs_path
-
 
 class OrdinalFst(GraphFst):
     """
@@ -41,8 +41,18 @@ class OrdinalFst(GraphFst):
         suffixes = pynini.string_file(get_abs_path("data/ordinals/suffixes.tsv"))
         suffixes_graph = pynutil.insert("morphosyntactic_features: \"") + suffixes + pynutil.insert("\"")
 
-        final_graph = numbers_graph + pynutil.insert(NEMO_SPACE) + suffixes_graph
-        self.graph = final_graph
+        ordinal_graph = numbers_graph + pynutil.insert(NEMO_SPACE) + suffixes_graph
+        self.graph = ordinal_graph
 
-        final_graph = self.add_tokens(final_graph)
+        romans = roman_to_int(numbers)
+        exceptions = pynini.string_file(get_abs_path("data/ordinals/roman_exceptions.tsv"))
+        graph_exception = pynini.project(exceptions, 'input')
+        romans_ordinal = (pynini.project(romans, "input") - graph_exception.arcsort()) @ romans
+        
+        romans_graph = pynutil.insert("integer: \"") + romans_ordinal + pynutil.insert("\"")
+        romans_ordinal_graph = romans_graph + pynutil.insert(NEMO_SPACE) + suffixes_graph
+        
+        self.graph = pynini.union(self.graph, romans_ordinal_graph).optimize()
+        final_graph = self.add_tokens(self.graph)
+        
         self.fst = final_graph.optimize()
