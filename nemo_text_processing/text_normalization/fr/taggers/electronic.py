@@ -80,7 +80,7 @@ class ElectronicFst(GraphFst):
             all_accepted_symbols_end | pynutil.add_weight(accepted_common_domains, MIN_NEG_WEIGHT)
         )
 
-        protocol_symbols = pynini.closure((graph_symbols | pynini.cross(":", "colon")) + pynutil.insert(" "))
+        protocol_symbols = pynini.closure((graph_symbols | pynini.cross(":", "deux points")) + pynutil.insert(" "))
         protocol_start = (pynini.cross("https", "HTTPS ") | pynini.cross("http", "HTTP ")) + (
             pynini.accep("://") @ protocol_symbols
         )

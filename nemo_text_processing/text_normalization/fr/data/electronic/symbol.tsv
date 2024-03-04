@@ -1,3 +1,20 @@
 .	point
 :	deux points
-/ slash
+/	slash
+-	tiret
+_	tiret bas
+!	point d'exclamation
+#	dièse
+$	dollar
+%	pour cent
+&	esperluette
+'	apostrophe
+*	astérisque
++	plus
+=	égal
+?	point d'interrogation
+^	accent circumflex
+`	accent grave
+|	barre verticale
+~	tilde
+,	virgule
