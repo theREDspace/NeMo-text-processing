@@ -13,6 +13,7 @@
 # limitations under the License.
 from nemo_text_processing.text_normalization.en.graph_utils import GraphFst
 from nemo_text_processing.text_normalization.en.verbalizers.whitelist import WhiteListFst
+from nemo_text_processing.text_normalization.fr.verbalizers.time import TimeFst
 from nemo_text_processing.text_normalization.fr.verbalizers.cardinal import CardinalFst
 from nemo_text_processing.text_normalization.fr.verbalizers.decimals import DecimalFst
 from nemo_text_processing.text_normalization.fr.verbalizers.fraction import FractionFst
@@ -37,9 +38,12 @@ class VerbalizeFst(GraphFst):
         ordinal_graph = ordinal.fst
         decimal = DecimalFst(deterministic=deterministic)
         decimal_graph = decimal.fst
+        time = TimeFst(deterministic=deterministic)
+        time_graph = time.fst
         fraction = FractionFst(ordinal=ordinal, deterministic=deterministic)
         fraction_graph = fraction.fst
         whitelist_graph = WhiteListFst(deterministic=deterministic).fst
 
-        graph = cardinal_graph | decimal_graph | ordinal_graph | fraction_graph | whitelist_graph
+        
+        graph = cardinal_graph | time_graph | decimal_graph | ordinal_graph | fraction_graph | whitelist_graph
         self.fst = graph
