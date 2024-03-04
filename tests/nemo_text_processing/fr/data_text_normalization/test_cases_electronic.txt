@@ -1,0 +1,40 @@
+a.bc@gmail.com~a point bc arobas gmail point com
+a@hotmail.de~a arobas hotmail point DE
+a@hotmail.fr~a arobas hotmail point FR
+a@hotmail.it~a arobas hotmail point IT
+a@aol.it~a arobas aol point IT
+a@msn.it~a arobas msn point IT
+cdf@abc.edu~cdf arobas abc point EDU
+abc@gmail.abc~abc arobas gmail point ABC
+abc@abc.com~abc arobas abc point com
+asdf123@abc.com~asdf un deux trois arobas abc point com
+a1b2@abc.com~a un b deux arobas abc point com
+ab3.sdd.3@gmail.com~ab trois point sdd point trois arobas gmail point com
+l'email est abc1@gmail.com~l'email est abc un arobas gmail point com
+abs@nvidia.com~abs arobas NVIDIA point com
+l'email est a-1.b3_c&-d@gma4i-l.com test~l'email est a tiret un point b trois tiret bas c esperluette tiret d arobas gma quatre i tiret l point com test
+nvidia.com~NVIDIA point com
+test.com~test point com
+test.abc~test.abc
+http://www.ourdailynews.com.sm~HTTP deux points slash slash double-vé double-vé double-vé point ourdailynews point com point SM
+https://www.ourdailynews.com.sm~HTTPS deux points slash slash double-vé double-vé double-vé point ourdailynews point com point SM
+www.ourdailynews.com.sm~double-vé double-vé double-vé point ourdailynews point com point SM
+www.ourdailynews.com/123-sm~double-vé double-vé double-vé point ourdailynews point com slash un deux trois tiret SM
+sdf@gmail.com.sm~sdf arobas gmail point com point SM
+sdf@gmail.com/123-sm~sdf arobas gmail point com slash un deux trois tiret SM
+sdf@gmail.abc/123-sm~sdf arobas gmail point ABC slash un deux trois tiret SM
+sdf@gmail.abc/123456-sm~sdf arobas gmail point ABC slash un deux trois quatre cinq six tiret SM
+ourdailynews.com/12-sm~ourdailynews point com slash un deux tiret SM
+ourdailynews.abc~ourdailynews.abc
+file:///c/code/NeMo/docs/build/html/processing/intro.html~file deux points slash slash slash c slash code slash nemo slash docs slash build slash html slash processing slash intro point HTML
+file:///photos/image.jpg~file deux points slash slash slash photos slash image point jpeg
+electronic test.com et test2.uk~electronic test point com et test deux point UK
+https://developer.nvidia.com/drive-sim-early-access-program~HTTPS deux points slash slash developer point NVIDIA point com slash drive tiret sim tiret early tiret access tiret program
+https://developer.nvidia.com/cv-cuda/early-access~HTTPS deux points slash slash developer point NVIDIA point com slash cv tiret CUDA slash early tiret access
+https://www.nvidia.com/dgx-basepod~HTTPS deux points slash slash double-vé double-vé double-vé point NVIDIA point com slash DGX tiret BASEPOD
+https://www.nvidia.com/dgx-basepod.sm/3~HTTPS deux points slash slash double-vé double-vé double-vé point NVIDIA point com slash DGX tiret BASEPOD point SM slash trois
+http://www.nvidia.com/rtx-6000~HTTP deux points slash slash double-vé double-vé double-vé point NVIDIA point com slash RTX tiret six mille
+rtxprohelp@exchange.nvidia.com~RTX pro help arobas exchange point NVIDIA point com
+enterpriseservices@nvidia.com~enterprise services arobas NVIDIA point com
+enterprise-services@nvidia.com~enterprise tiret services arobas NVIDIA point com
+https://www.nvidia.com/dgx-basepod/~HTTPS deux points slash slash double-vé double-vé double-vé point NVIDIA point com slash DGX tiret BASEPOD slash
